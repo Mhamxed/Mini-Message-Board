@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/style.css" type="text/css">
+</head>
+<body>
+    <a href="/new"><button class="new">New message +</button></a>
+    <div class="messages">
+        <% messages.forEach((message) => { %>
+            <div class="message">
+                <p><strong>Username: <%= message.user %></strong></p>
+                <p>Message: <%= message.text %></p>
+                <p>Date: <%= message.added.toISOString().split('T')[0]%></p>
+                <a href="/messages/<%= message.id %>"><button class="open">Details</button></a>
+            </div>
+          <% }); %>
+    </div>
+</body>
+</html>
